@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 
 const Ajax = () => {
     const [usuarios, setUsuarios] = useState([])
+    const [cargando, setCargando] = useState(true);
+    const [errores, setErrores] = useState("")
     //generico / basico
     const getUsuariosEstaticos= ()=> {
         setUsuarios([
@@ -47,23 +49,66 @@ const Ajax = () => {
         error =>console.error("Error al obtener los datos del servidor:", error))
     }
 
+    const getUsuariosAjaxAW =  ()=> {
+      setTimeout(async()=>{
+        try{
+          const peticion = await fetch('https://reqres.in/api/users?page=2');
+          const {data} = await peticion.json();
+    
+          setUsuarios(data)
+          setCargando(false);  
+
+        }catch(error){
+          console.log(error);  
+          setErrores(error.message)    
+        }
+     },5000)
+    }
+
     useEffect(()=>{
-        getUsuariosAjaxPms()
+        //getUsuariosAjaxPms()
+
+        getUsuariosAjaxAW()
     },[])
-  return (
-    <div>
-        <h2>Listado de usuarios Ajax</h2>
-        <ol>
-            {
-                usuarios.map(usuario =>{
-                    console.log(usuario);
-                    
-                    return <li key={usuario.id}>{usuario.first_name}</li>
-                })
-            }
-        </ol>
-    </div>
-  )
-}
+
+    if(errores !== ""){
+      //cuando pasa un error
+      return(
+        <div className="errores">
+          {errores}
+        </div>)
+    } else if(cargando === true){
+      //cuando todo esta cargando
+      return(
+        <div className="cargando">
+          Cargando datos...
+        </div>
+      )
+    }else if(cargando == false && errores ==="")
+      //cuando todo ha ido bien
+
+      return (
+        <div>
+            <h2>Listado de usuarios Ajax</h2>
+            <ol>
+                {
+                    usuarios.map(usuario =>{
+                        
+                        return <li key={usuario.id}>
+                        <img src={usuario.avatar} width={80}/>
+                         <br/>
+                          {usuario.first_name} 
+                                      {usuario.last_name}</li>
+                    })
+                }
+            </ol>
+        </div>
+      )
+    }
+
+
+
+  
+
 
 export default Ajax
