@@ -36,3 +36,53 @@
     transform: rotate(360deg);
   }
 }
+form input[type="text"],
+form select,
+form textarea{
+  display: block;
+  margin: 10px;
+  padding: 5px;
+  min-width: 250px;
+  max-width: 250px;
+
+}
+form select{
+  min-width: 263px;
+  max-width: 263px;
+}
+form input[type="submit"],
+form button{
+  margin: 10px;
+  padding: 15px;
+  cursor: pointer;
+  background-color: green;
+  color: white;
+  border: 1px solid white ;
+  border-radius: 10px;
+  transition: all 300ms;
+}
+form input[type="submit"]:hover{
+  opacity:.7;
+  background-color: white;
+  color: green;
+  border: 1px solid green ;
+
+}
+.label{
+  display: block;
+  background-color: lightblue;
+  border-radius: 5px;
+  padding: 5px;
+  color: #444;
+  margin: 15px;
+}
+.label-green{
+  background-color: green;
+  color: white;
+}
+.label-gray{
+  background-color: #ccc;
+  border: 1px solid #444;
+  color: #444;
+  padding: 10px;
+}
