@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 const AvisoComponent = () => {
 useEffect(()=>{
     //cuando el componente se monta
-    alert('el componente avisocomponent esta montado')
+    alert('el componente aviso component esta montado')
 
     //cuando el componente se desmonta
     return ()=> {
