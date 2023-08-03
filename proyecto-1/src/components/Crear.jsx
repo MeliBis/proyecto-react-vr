@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
+import { GuardarEnStorage } from '../helpers/GuardarEnStorage';
 
-const Crear = () => {
+const Crear = ({setListadoState}) => {
     const tituloComponente= "Añadir película";
 
     const [peliState, setPeliState] = useState({
@@ -26,36 +27,25 @@ const Crear = () => {
         }
         //guardar estado
         setPeliState(peli)
+        
+       //actualizar estado del listado principal
+        setListadoState(elementos => {
+            return [...elementos, peli]
+        }) 
+        //actualizar estado del listado
+        setListadoState(peli)
 
-        //guardar en el amacenamiento local
-        localStorage.setItem('peli', JSON.stringify([peli]));  
+        //guardar en el al macenamiento local
+        localStorage.setItem('pelis', JSON.stringify([peli]));  
+        GuardarEnStorage("peli", peli);
+        //GuardarEnStorage("copia_datos", peli)
       }
-
-    const guardarEnStorage= peli =>{
-    //conseguir los elementos que ya tenemos en localStorage
-        let elementos= JSON.parse(localStorage.getItem("pelis"))
-    //comprobar si es un array
-        if(Array.isArray(elementos)){
-    //guardar dentro del array un elemento nuevo
-            elementos.push(peli)
-        }else{
-            //crear un array con la nueva peli
-            elementos = [peli];
-        }
-        console.log(elementos);
-    //guardar en el localStorage 
-        localStorage.setItem("pelis", JSON.stringify(elementos))
-    //devolver objeto
-        return peli
-    //localStorage.setItem("pelis", JSON.stringify([peli]))
-}
-
+     
   return (
     <div className="add">
             <h3 className="title">{tituloComponente}</h3>
             <strong>
-                {(titulo && descripcion)&& "haz creado la pelicula : " +titulo}            
-
+                {(titulo && descripcion)&& "has creado la pelicula : " +titulo}            
             </strong>
             <form onSubmit={conseguirDatosForm}>
                 <input type="text"  

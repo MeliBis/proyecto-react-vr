@@ -1,8 +1,11 @@
+import { useState } from 'react';
 import Buscador from './components/Buscador.jsx';
 import Crear from './components/Crear.jsx';
 import Listado from './components/Listado.jsx'
 
 function App() {
+    const [listadoState, setListadoState ] = useState([])
+
   return (
     <div className="layout">
    {/* Cabecera */}
@@ -11,7 +14,7 @@ function App() {
             <div className="play"></div>
         </div>
         
-        <h1>MisPelis</h1>
+        <h1>MisPelis</h1>   
     </header>
 
    {/* Barra de navegación */}
@@ -27,18 +30,18 @@ function App() {
    {/* Contenido principal */}
     <section id="content" className="content">
         {/* aqui van el listado de peliculas */}
-        <Listado/>
+        <Listado listadoState={listadoState} setListadoState={setListadoState}/>
     </section>
 
    {/* Barra lateral */}
     <aside className="lateral">
      <Buscador/>
-        <Crear/>
+        <Crear setListadoState={setListadoState}/>
     </aside>
 
   {/* Pie de página */}
     <footer className="footer">
-        &copy; Meli Barrios <a href="/">melicornio</a>
+        &copy; Meli Barrios <a href="/"> - meliscript - </a>
     </footer>
 
 </div>

@@ -50,23 +50,23 @@ const [usuario, setUsuario]= useState({})
  
         <h1>Formulario con React</h1>
 
-    { usuario.bio && 
-    (
-           <div className='info_usuario label label-gray'>
-           {usuario.nombre} {usuario.apellido} es un {usuario.genero} y su biografia es: <p>{usuario.bio}</p> 
-       </div>
-    )
+    { usuario.bio && usuario.bio.length >=1 && 
+        (
+            <div className='info_usuario label label-gray'>
+                {usuario.nombre} {usuario.apellido} es un {usuario.genero} y su biografia es: <p>{usuario.bio}</p> 
+            </div>
+        )
     
     }
 
         <form onSubmit={conseguirDatosFormulario} action="">
             <input type="text" 
             name="nombre" id="" 
-            placeholder='nombre'
+            placeholder='Nombre'
             onChange={cambiarDatos}
             />
             <input type="text" 
-            placeholder='apellido' 
+            placeholder='Apellido' 
             name='apellido' 
             onChange={cambiarDatos}
             />
@@ -86,7 +86,7 @@ const [usuario, setUsuario]= useState({})
             onChange={cambiarDatos}
             ></textarea>
 
-            <input type="submit" value="enviar" name='enviar'/>
+            <input type="submit" value="Enviar" name='enviar'/>
         </form>
     </>
   )

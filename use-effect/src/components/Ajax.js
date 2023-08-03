@@ -84,7 +84,7 @@ const Ajax = () => {
           Cargando datos...
         </div>
       )
-    }else if(cargando == false && errores ==="")
+    }else if(cargando === false && errores ==="")
       //cuando todo ha ido bien
 
       return (
