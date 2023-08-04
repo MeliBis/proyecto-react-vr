@@ -26,7 +26,7 @@ const Crear = ({setListadoState}) => {
             descripcion
         }
         //guardar estado
-        setPeliState(peliState)
+        setPeliState(peli)
         
        //actualizar estado del listado principal
         setListadoState(elementos => {
@@ -36,11 +36,13 @@ const Crear = ({setListadoState}) => {
         setPeliState(peli)
 
         //guardar en el al almacenamiento local
-        localStorage.setItem('pelis', JSON.stringify([peli]));  
+        //localStorage.setItem('pelis', JSON.stringify([peli]));  
         GuardarEnStorage("peli", peli);
         //GuardarEnStorage("copia_datos", peli)
       }
-     
+
+
+
   return (
     <div className="add">
             <h3 className="title">{tituloComponente}</h3>
