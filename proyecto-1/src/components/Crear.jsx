@@ -26,16 +26,16 @@ const Crear = ({setListadoState}) => {
             descripcion
         }
         //guardar estado
-        setPeliState(peli)
+        setPeliState(peliState)
         
        //actualizar estado del listado principal
         setListadoState(elementos => {
             return [...elementos, peli]
         }) 
         //actualizar estado del listado
-        setListadoState(peli)
+        setPeliState(peli)
 
-        //guardar en el al macenamiento local
+        //guardar en el al almacenamiento local
         localStorage.setItem('pelis', JSON.stringify([peli]));  
         GuardarEnStorage("peli", peli);
         //GuardarEnStorage("copia_datos", peli)
@@ -44,9 +44,11 @@ const Crear = ({setListadoState}) => {
   return (
     <div className="add">
             <h3 className="title">{tituloComponente}</h3>
+
             <strong>
-                {(titulo && descripcion)&& "has creado la pelicula : " +titulo}            
+                {(titulo && descripcion) && "has creado la pelicula: " + titulo}            
             </strong>
+
             <form onSubmit={conseguirDatosForm}>
                 <input type="text"  
                         id="titulo" 
