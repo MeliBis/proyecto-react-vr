@@ -22,7 +22,7 @@ const Listado = ({listadoState, setListadoState}) => {
     }
   const borrarPeli= (id)=>{
     //conseguir peliculas almacenadas
-    let pelis_almacenadas =conseguirPeliculas()
+    let pelis_almacenadas = conseguirPeliculas()
 
     //filtrar esas peliculas para que elimine del array las que no quiero
     let nuevo_array_pelis = pelis_almacenadas.filter(peli => peli.id !== parseInt(id));
