@@ -12,6 +12,9 @@ const Gestion = () => {
     const asignarGestor =e =>{
         setNombre(gestorInput.current.value);
     }
+    const mostrarMensaje= ()=>{
+      console.log('hola soy un mensaje de prueba');
+    }
   return (
     <div>
         <h1>Nombre de la líder: {nombre}</h1>

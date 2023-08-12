@@ -1,0 +1,48 @@
+*{
+  margin: 0;
+}
+body{
+  background-color: #ccc;
+}
+.header nav{
+  display: flex;
+  background-color: black;
+  height: 80px;
+  color: white;
+  align-items: center;
+  padding-right: 25px;
+  padding-left: 25px;
+}
+.header ul{
+  display: flex;
+  flex-basis: 75%;
+  list-style: none;
+  justify-content: flex-end;
+
+}
+.header nav a{
+  color: white;
+  text-decoration: none;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.header nav a:hover{
+  color: lightblue;
+}
+.content{
+  width: 70%;
+  min-height: 350px;
+  background-color: white;
+  border-radius: 15px ;
+  border: 1px solid #ccc ;
+  margin:25px auto;
+  padding: 25px;
+}
+h1,p{
+  text-align: center;
+}
+.login input{
+  display: block;
+  margin: 15px auto;
+  padding: 15px;
+}
