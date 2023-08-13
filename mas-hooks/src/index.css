@@ -11,3 +11,41 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.container{
+  display: block;
+ text-align: center;
+}
+.mi-formulario input,
+.mi-formulario textarea{
+  display: block;
+  width: 300px;
+  max-width: 350px;
+  margin: 15px auto;
+  padding: 10px;
+  border: none;
+  box-shadow: 0 2px 5px 0 lightpink;
+}
+.mi-formulario input[type="submit"]{
+  width: 40%;
+  border: none ;
+  box-shadow: none;
+  cursor: pointer;
+  margin-bottom: 10px;
+  background-color: lightpink;
+  color: white;
+  transition: all 7ms;
+}
+.mi-formulario input[type="submit"]:hover{
+  color: lightpink;
+  border: 1px solid lightpink ;
+  background-color: white;
+}
+.enviado{
+  background-color: green;
+  color: white;
+  padding: 5px;
+}
+.codigo{
+  background-color: red;
+  color: white;
+}

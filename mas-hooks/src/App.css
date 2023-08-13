@@ -35,4 +35,8 @@
   to {
     transform: rotate(360deg);
   }
+} 
+.mi-formulario input,
+.mi-formulario textarea{
+  display: block;
 }
